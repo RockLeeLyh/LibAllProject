@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <item name="lmedia_extend_click_time_id" type="id" />
+    <item name="lmedia_extend_click_data_id" type="id" />
+</resources>

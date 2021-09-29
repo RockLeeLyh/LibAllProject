@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="lmedia_colorPrimary">#fff44336</color>
+    <color name="lmedia_colorPrimaryDark">#ffd32f2f</color>
+    <color name="lmedia_colorAccent">#ff727272</color>
+
+    <color name="lmedia_title_bar_bg">@color/lmedia_colorPrimaryDark</color>
+    <color name="lmedia_folder_bg">@color/lmedia_title_bar_bg</color>
+</resources>

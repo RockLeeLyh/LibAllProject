@@ -1,0 +1,6 @@
+com/rlnb/lib/media/app/databinding/MainLayoutBinding.java
+ com.rlnb.lib.media.app.databinding.MainLayoutBinding
+com/rlnb/lib/media/app/DataBindingInfo.java
+ com.rlnb.lib.media.app.DataBindingInfo
+com/rlnb/lib/media/app/BuildConfig.java
+ com.rlnb.lib.media.app.BuildConfig

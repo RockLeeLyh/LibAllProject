@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+                                                       
+                                                   
+
+    
+
+                                           
+
+                 
+                         
+                                                     
+           
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" android:tag="layout/lmedia_file_fragment_0" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools">
+
+        <View
+            android:id="@+id/v_title_bar_bg"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/lmedia_title_bar_height"
+            android:background="@color/lmedia_title_bar_bg"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/mbtn_close"
+            android:layout_width="@dimen/lmedia_title_bar_height"
+            android:layout_height="0dp"
+            android:background="@android:color/transparent"
+            android:src="@mipmap/lmedia_icon_close"
+            android:tint="@android:color/white"
+            app:layout_constraintBottom_toBottomOf="@+id/v_title_bar_bg"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/v_title_bar_bg" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_folder"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="3dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:minWidth="90dp"
+            android:paddingStart="15dp"
+            android:paddingEnd="35dp"
+            android:stateListAnimator="@null"
+            android:tag="binding_1"                
+            app:cornerRadius="@dimen/lmedia_title_bar_height"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintBottom_toBottomOf="@+id/v_title_bar_bg"
+            app:layout_constraintEnd_toStartOf="@+id/btn_confirm"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintStart_toEndOf="@+id/mbtn_close"
+            app:layout_constraintTop_toTopOf="@+id/v_title_bar_bg"
+            tools:text="ALL" />
+
+        <ImageView
+            android:id="@+id/iv_drop_down"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginEnd="8dp"
+            android:background="@mipmap/lmedia_icon_drop_down"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_folder"
+            app:layout_constraintEnd_toEndOf="@+id/btn_folder"
+            app:layout_constraintTop_toTopOf="@+id/btn_folder" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_confirm"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginEnd="5dp"
+            android:tag="binding_2"                     
+            android:stateListAnimator="@null"
+            android:text="@string/lmedia_confirm_btn"
+            android:textColor="@android:color/white"
+            app:cornerRadius="5dp"
+            app:layout_constraintBottom_toBottomOf="@+id/v_title_bar_bg"
+            app:layout_constraintEnd_toEndOf="@+id/v_title_bar_bg"
+            app:layout_constraintStart_toEndOf="@+id/btn_folder"
+            app:layout_constraintTop_toTopOf="@+id/v_title_bar_bg" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_file"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@android:color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/v_title_bar_bg" />
+
+        <View
+            android:id="@+id/v_bottom_bg"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#aa000000"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <Button
+            android:id="@+id/btn_switch_size"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:background="@android:color/transparent"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:text="@string/lmedia_switch_btn"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/v_bottom_bg"
+            app:layout_constraintStart_toStartOf="@+id/v_bottom_bg"
+            app:layout_constraintTop_toTopOf="@+id/v_bottom_bg" />
+
+        <View
+            android:id="@+id/v_folder_mask"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="#aa000000"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/v_title_bar_bg"
+            tools:visibility="visible" />
+
+
+        <ImageView
+            android:id="@+id/iv_loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/lmedia_icon_loading"
+            android:tag="binding_3"                                                 
+            app:layout_constraintBottom_toTopOf="@+id/tv_loading"
+            app:layout_constraintEnd_toEndOf="@+id/tv_loading"
+            app:layout_constraintStart_toStartOf="@+id/tv_loading"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/tv_loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="@string/lmedia_loading"
+            android:textColor="#ff999999"
+            android:textSize="14sp"
+            android:tag="binding_4"                                                 
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+         

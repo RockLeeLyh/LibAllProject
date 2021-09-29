@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="lmedia_select_main_title">多媒體選擇器</string>
+    <string name="lmedia_select_file_title">%s選擇器</string>
+
+    <string name="lmedia_switch_btn">已選擇(%d/%d)</string>
+    <string name="lmedia_confirm_btn">確認</string>
+
+    <string name="lmedia_loading">正在加載</string>
+</resources>
