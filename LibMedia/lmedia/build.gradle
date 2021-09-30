@@ -5,7 +5,9 @@ plugins {
 }
 
 group='com.rlnb.lib.media'
-
+//https://github.com/dcendents/android-maven-gradle-plugin
+//https://juejin.cn/post/6916061679079915528
+//https://jitpack.io/
 
 android {
     // 资源前缀
