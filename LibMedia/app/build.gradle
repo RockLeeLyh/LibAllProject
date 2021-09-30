@@ -55,6 +55,8 @@ dependencies {
     androidTestImplementation rootProject.ext.dependencies.junitExt
     androidTestImplementation rootProject.ext.dependencies.espressoCore
 
-    implementation project(path: ':lmedia')
+//    implementation project(path: ':lmedia')
     implementation rootProject.ext.dependencies.ucrop
+
+    implementation 'com.github.RockLeeLyh:LibAllProject:Tag'
 }
