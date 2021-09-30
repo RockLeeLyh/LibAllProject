@@ -40,7 +40,9 @@ android {
         jvmTarget = '1.8'
     }
 
-    dataBinding.enabled = true
+    buildFeatures{
+        dataBinding = true
+    }
 }
 
 dependencies {
@@ -54,4 +56,5 @@ dependencies {
     androidTestImplementation rootProject.ext.dependencies.espressoCore
 
     implementation project(path: ':lmedia')
+    implementation rootProject.ext.dependencies.ucrop
 }

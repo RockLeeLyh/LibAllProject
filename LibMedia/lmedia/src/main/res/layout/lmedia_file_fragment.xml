@@ -24,10 +24,10 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
-            android:id="@+id/mbtn_close"
+            android:id="@+id/ib_close"
             android:layout_width="@dimen/lmedia_title_bar_height"
             android:layout_height="0dp"
-            android:background="@android:color/transparent"
+            android:background="@drawable/lmedia_file_item_bg"
             android:src="@mipmap/lmedia_icon_close"
             android:tint="@android:color/white"
             app:layout_constraintBottom_toBottomOf="@+id/v_title_bar_bg"
@@ -53,7 +53,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/v_title_bar_bg"
             app:layout_constraintEnd_toStartOf="@+id/btn_confirm"
             app:layout_constraintHorizontal_chainStyle="spread_inside"
-            app:layout_constraintStart_toEndOf="@+id/mbtn_close"
+            app:layout_constraintStart_toEndOf="@+id/ib_close"
             app:layout_constraintTop_toTopOf="@+id/v_title_bar_bg"
             tools:text="ALL" />
 
@@ -73,6 +73,7 @@
             android:layout_height="0dp"
             android:layout_marginEnd="5dp"
             android:enabled="@{vmFile.isConfirmEnabled}"
+            android:visibility="@{vmFile.isConfirmBtnShow ? View.VISIBLE : View.INVISIBLE}"
             android:stateListAnimator="@null"
             android:text="@string/lmedia_confirm_btn"
             android:textColor="@android:color/white"
@@ -88,12 +89,13 @@
             android:layout_height="0dp"
             android:background="@android:color/white"
             app:layout_constraintBottom_toBottomOf="parent"
+            android:paddingBottom="@dimen/lmedia_bottom_bar_height"
             app:layout_constraintTop_toBottomOf="@+id/v_title_bar_bg" />
 
         <View
             android:id="@+id/v_bottom_bg"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="@dimen/lmedia_bottom_bar_height"
             android:background="#aa000000"
             app:layout_constraintBottom_toBottomOf="parent" />
 
@@ -104,7 +106,8 @@
             android:background="@android:color/transparent"
             android:paddingStart="15dp"
             android:paddingEnd="15dp"
-            android:text="@string/lmedia_switch_btn"
+            tools:text="已選0/11"
+            android:text="@{@string/lmedia_switch_btn(vmFile.selectFileSize, vmFile.selectMaxFileSize)}"
             android:textColor="@android:color/white"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="@+id/v_bottom_bg"

@@ -1,0 +1,34 @@
+{
+    "logs": [
+        {
+            "outputFile": "E:\\AProject\\LibAllProject\\LibMedia\\lmedia\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-port\\values-port.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\rock.lee\\.gradle\\caches\\transforms-3\\3351324793b446b496be1d902c116577\\transformed\\appcompat-1.2.0\\res\\values-port\\values-port.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "55",
+                        "endOffsets": "106"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "E:\\AProject\\LibAllProject\\LibMedia\\lmedia\\build\\intermediates\\res\\merged\\release\\values-port\\values-port.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\rock.lee\\.gradle\\caches\\transforms-3\\3351324793b446b496be1d902c116577\\transformed\\appcompat-1.2.0\\res\\values-port\\values-port.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "55",
+                        "endOffsets": "106"
+                    }
+                }
+            ]
+        }
+    ]
+}

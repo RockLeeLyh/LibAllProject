@@ -80,7 +80,7 @@ class TakePhotoUtils(activity: Activity) {
      * 向系统数据库插入一条图片文件
      * @return  返回插入的文件的URI
      */
-    private fun createImageUri(): Uri? {
+    fun createImageUri(): Uri? {
         return mActivity.contentResolver.insert(getMediaUri(), ContentValues())
     }
 
@@ -88,8 +88,12 @@ class TakePhotoUtils(activity: Activity) {
      * 删除插入文件
      */
     private fun delImageUri() {
+        delUri(currentPhotoUri)
+    }
+
+    fun delUri(uri:Uri?) {
         try {
-            currentPhotoUri?.let {
+            uri?.let {
                 val id = it.path?.split("/")?.last()
                 val delUri = getMediaUri()
                 val delCount = mActivity.contentResolver.delete(
@@ -102,7 +106,6 @@ class TakePhotoUtils(activity: Activity) {
         } catch (e: Exception) {
             e.printStackTrace()
         }
-
     }
 
     fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

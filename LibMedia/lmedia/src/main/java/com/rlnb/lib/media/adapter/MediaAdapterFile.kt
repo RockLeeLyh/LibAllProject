@@ -127,8 +127,8 @@ class MediaAdapterFile(mediaParamsBean: MediaParamsBean) :
         bean: MediaFileBean,
         position: Int
     ) {
-        ImgLoader.loadUriImg(bean.uri, ivCover)
 
+        ImgLoader.loadUriImg(bean.uri, ivCover)
         val id = bean.id
         val isSwitch = mSwitchBeanMap.containsKey(id)
         if (isSwitch) {
@@ -166,6 +166,28 @@ class MediaAdapterFile(mediaParamsBean: MediaParamsBean) :
      * @param   bean    数据对象
      */
     private fun clickFileItem(bean: MediaFileBean) {
+       if(mMediaParamsBean.isMaxSelectableForOne()) {
+           clickFileOneItem(bean)
+       }else {
+           clickFileMoreItem(bean)
+       }
+    }
+
+    /**
+     * 点击文件Item事件方法,單圖選擇時
+     * @param   bean    数据对象
+     */
+    private fun clickFileOneItem(bean:MediaFileBean){
+        mSwitchBeanMap.forEach{notifyItemChanged(it.value.position)}
+        mSwitchBeanMap.clear()
+        clickFileMoreItem(bean)
+    }
+
+    /**
+     * 点击文件Item事件方法,多圖選擇時
+     * @param   bean    数据对象
+     */
+    private fun clickFileMoreItem(bean:MediaFileBean){
         val sizeMap = mSwitchBeanMap.size
         val id = bean.id
         if (mSwitchBeanMap.containsKey(id)) {
@@ -202,10 +224,16 @@ class MediaAdapterFile(mediaParamsBean: MediaParamsBean) :
         mClickSelectChangeFileCallback?.invoke(mSwitchBeanMap)
     }
 
-    fun addTakePhotoBean(bean: MediaFileBean) {
-        mListData?.add(if (mMediaParamsBean.isShowTakeCamera) 1 else 0, bean)
 
-        notifyDataSetChanged()
+    /** 照相后添加進行列表 */
+    fun addTakePhotoBean(bean: MediaFileBean) {
+        val index = if (mMediaParamsBean.isShowTakeCamera) 1 else 0
+        bean.position = index
+        mListData?.add(index, bean)
+        clickFileItem(bean)
+        notifyItemInserted(index)
 
     }
+
+
 }
