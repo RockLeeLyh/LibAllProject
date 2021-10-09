@@ -40,17 +40,17 @@ android {
 
 dependencies {
 
-    implementation rootProject.ext.dependencies.coreKtx
-    implementation rootProject.ext.dependencies.kotlinStdlib
-    implementation rootProject.ext.dependencies.appcompat
-    implementation rootProject.ext.dependencies.material
+    compileOnly rootProject.ext.dependencies.coreKtx
+    compileOnly rootProject.ext.dependencies.kotlinStdlib
+    compileOnly rootProject.ext.dependencies.appcompat
+    compileOnly rootProject.ext.dependencies.material
     testImplementation rootProject.ext.dependencies.junit
     androidTestImplementation rootProject.ext.dependencies.junitExt
     androidTestImplementation rootProject.ext.dependencies.espressoCore
 
 
-    implementation rootProject.ext.dependencies.paging
-    implementation rootProject.ext.dependencies.logger
-    implementation rootProject.ext.dependencies.glide
+    compileOnly rootProject.ext.dependencies.paging
+    compileOnly rootProject.ext.dependencies.logger
+    compileOnly rootProject.ext.dependencies.glide
     annotationProcessor rootProject.ext.dependencies.glideCompiler
 }

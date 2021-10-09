@@ -1,32 +1,27 @@
 package com.rlnb.lib.media.ui
 
-import android.content.Context
 import android.os.Bundle
 import android.view.View
-import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.rlnb.lib.media.R
 import com.rlnb.lib.media.adapter.MediaAdapterFolder
+import com.rlnb.lib.media.bean.MediaParamsBean
 import com.rlnb.lib.media.core.BaseFragment
 import com.rlnb.lib.media.core.bindingLazy
 import com.rlnb.lib.media.core.extendOnClickCallback
 import com.rlnb.lib.media.databinding.LmediaFolderFragmentBinding
-import com.rlnb.lib.media.bean.MediaParamsBean
 import com.rlnb.lib.media.model.MediaFolderModel
 import com.rlnb.lib.media.select.bean.MediaFolderBean
-import kotlinx.coroutines.launch
 
 /**
  *
  * @author RL
  * @version 2021/9/29
  */
-class MediaFolderFragment(mediaFolderModel: MediaFolderModel, mediaParamsBean: MediaParamsBean) :
+class MediaFolderFragment(mediaFolderModel: MediaFolderModel) :
     BaseFragment() {
     private val mVdb by bindingLazy<LmediaFolderFragmentBinding>(R.layout.lmedia_folder_fragment)
 
-    /** 設置參數對象 */
-    private val mMediaParamsBean = mediaParamsBean
     private val mMediaFolderModel = mediaFolderModel
 
     private val mAdapter by lazy {
@@ -43,6 +38,8 @@ class MediaFolderFragment(mediaFolderModel: MediaFolderModel, mediaParamsBean: M
 
     /** 點擊列表回調方法 */
     var mClickFolderCallBack: ((folderBean: MediaFolderBean) -> Unit)? = null
+
+    private var isFirstInitData = false
 
     override fun getRootView(): View {
         return mVdb.root
@@ -71,6 +68,10 @@ class MediaFolderFragment(mediaFolderModel: MediaFolderModel, mediaParamsBean: M
 
     /** 初始化目录文件夹 */
     fun initData() {
+        if(isFirstInitData) {
+            return
+        }
+        isFirstInitData = true
         val dataList = mMediaFolderModel.queryFolder()
         if (dataList.isNullOrEmpty()) {
             mGetDataEmptyCallback?.invoke()

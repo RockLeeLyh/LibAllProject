@@ -234,7 +234,6 @@ class MediaFileFragment(mediaFileModel: MediaFileModel, fileVm: FileVm) : BaseFr
                 ObjectAnimator.ofFloat(this, View.ROTATION, 180F, 360F).setDuration(500).start()
             }
         }
-
     }
 
     /**

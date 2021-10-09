@@ -16,6 +16,10 @@ data class MediaParamsBean(
      * 2：視頻
      *  */
     var mediaType: Int = 1,
+    /** 是否首次顯示選擇類型上拉框 */
+    var isSelectFirstShowType:Boolean = true,
+    /** 类型选择弹出框空白区域是否可点击 */
+    var isSelectMaskClick:Boolean = false,
     /** 是否顯示照相機 */
     var isShowTakeCamera: Boolean = true,
     /** 最大選擇文件數量 */
@@ -23,7 +27,8 @@ data class MediaParamsBean(
     /** 顯示圖片列表列數 */
     var gridSpanCount: Int = 4,
     /** 選擇圖片是否立即跳轉，只有設置最大數里為1時，才會有效，默認不跳轉，需要點擊確認按鈕 */
-    var isChooseToJumpNow: Boolean = false
+    var isChooseToJumpNow: Boolean = false,
+    var isConfirmBeforeClose:Boolean = true,
 ) {
     /**
      * 拼接文件夾查詢條件表達式模版

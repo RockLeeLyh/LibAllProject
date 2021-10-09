@@ -18,7 +18,7 @@
             android:background="@color/lmedia_folder_bg"
             app:layout_constraintTop_toTopOf="parent"/>
 
-        <com.google.android.material.card.MaterialCardView
+        <androidx.cardview.widget.CardView
             android:id="@+id/cv_main"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -34,7 +34,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="@dimen/lmedia_folder_radius" />
-        </com.google.android.material.card.MaterialCardView>
+        </androidx.cardview.widget.CardView>
 
         <View
             android:id="@+id/v_bottom_margin"

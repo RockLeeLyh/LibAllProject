@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true">
+        <shape
+            android:shape="rectangle">
+            <corners android:radius="@dimen/lmedia_title_bar_btn_height"/>
+            <solid android:color="@color/lmedia_title_bar_btn_bg_pressed"/>
+        </shape>
+    </item>
+    <item>
+        <shape
+            android:shape="rectangle">
+            <corners android:radius="@dimen/lmedia_title_bar_btn_height"/>
+            <solid android:color="@color/lmedia_title_bar_btn_bg"/>
+        </shape>
+    </item>
+</selector>

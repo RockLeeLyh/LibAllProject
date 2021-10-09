@@ -5,6 +5,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
@@ -13,6 +14,7 @@ import androidx.databinding.DataBindingUtil
 import com.rlnb.lib.media.app.databinding.MainLayoutBinding
 import com.rlnb.lib.media.bean.MediaFileBean
 import com.rlnb.lib.media.bean.MediaParamsBean
+import com.rlnb.lib.media.core.extendOnClickCallback
 import com.rlnb.lib.media.delegate.MediaFragmentDelegate
 import com.rlnb.lib.media.util.MediaLog
 import com.yalantis.ucrop.UCrop
@@ -26,17 +28,23 @@ class MainActivity : AppCompatActivity() {
 
     private var mTakePhotoActivityResult: ((requestCode: Int, resultCode: Int, data: Intent?) -> Unit)? = null
 
-    private lateinit var mMediaFragmentDelegate:MediaFragmentDelegate
-
+    private var mMediaFragmentDelegate: MediaFragmentDelegate? = null
+    private lateinit var  mVdb: MainLayoutBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val vdb: MainLayoutBinding = DataBindingUtil.setContentView(this, R.layout.main_layout)
+        mVdb = DataBindingUtil.setContentView(this, R.layout.main_layout)
+        mVdb.btnOpen.extendOnClickCallback({
+            openMedia()
+        })
+    }
 
-        mMediaFragmentDelegate = MediaFragmentDelegate(
+    private fun openMedia() {
+        mMediaFragmentDelegate = mMediaFragmentDelegate?:MediaFragmentDelegate(
             this,
-            vdb.flMainApp.id,
+            mVdb.flMainApp.id,
             MediaParamsBean().apply {
                 maxSelectable = 1
+//                isSelectFirstShowType = false
             }
         )
             .apply {
@@ -45,8 +53,14 @@ class MainActivity : AppCompatActivity() {
                 mTakePhotoActivityResult = mTakePhotoActivityResultCallback
                 mConfirmUriCallback = {confirmUri(it)}
                 mConfirmBeanCallback = {confirmBean(it)}
-                init()
+                mCloseCallback = {closeMedia()}
             }
+        mVdb.flMainApp.visibility = View.VISIBLE
+        mMediaFragmentDelegate?.init()
+    }
+
+    private fun closeMedia() {
+        mVdb.flMainApp.visibility = View.GONE
     }
 
     private fun confirmUri(uriList:List<Uri>) {
@@ -62,7 +76,7 @@ class MainActivity : AppCompatActivity() {
     }
     var destinationUri:Uri? = null
     private fun crop(sourceUri:Uri) {
-        destinationUri = mMediaFragmentDelegate.createImageUri()
+        destinationUri = mMediaFragmentDelegate?.createImageUri()
         MediaLog.i(this,"UCrop 裁剪，uri = $destinationUri")
 
         UCrop.of(sourceUri, destinationUri!!)
@@ -82,12 +96,12 @@ class MainActivity : AppCompatActivity() {
                 MediaLog.i(this, "UCrop 裁剪成功，uri = $uri")
             }else {
                 MediaLog.i(this, "UCrop 裁剪取消，destinationUri = $destinationUri")
-                mMediaFragmentDelegate.delUri(destinationUri)
+                mMediaFragmentDelegate?.delUri(destinationUri)
             }
         }
         else if (resultCode == UCrop.RESULT_ERROR) {
             val cropError = data?.let { UCrop.getError(it) }
-            mMediaFragmentDelegate.delUri(destinationUri)
+            mMediaFragmentDelegate?.delUri(destinationUri)
             MediaLog.i(this,"UCrop 裁剪失敗，cropError = $cropError")
         }
     }

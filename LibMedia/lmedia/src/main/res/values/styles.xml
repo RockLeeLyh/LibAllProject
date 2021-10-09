@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="lmedia_select_btn">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/lmedia_title_bar_height</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:background">@drawable/lmedia_select_item_bg</item>
+    </style>
+    <style name="lmedia_select_btn_type" parent="@style/lmedia_select_btn">
+        <item name="android:textColor">#ff444444</item>
+        <item name="android:gravity">center_vertical|left</item>
+        <item name="android:drawablePadding">10dp</item>
+        <item name="android:drawableEnd">@mipmap/lmedia_icon_right_arrow</item>
+        <item name="android:drawableTint">#FFFF5722</item>
+    </style>
+</resources>

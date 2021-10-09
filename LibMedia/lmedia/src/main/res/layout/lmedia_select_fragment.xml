@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:background="#55000000"
+        tools:ignore="MissingConstraints">
+        <Button
+            android:id="@+id/btn_mask"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:stateListAnimator="@null"
+            android:background="@android:color/transparent"
+            app:layout_constraintBottom_toTopOf="@+id/btn_camera"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <Button
+            android:id="@+id/btn_camera"
+            style="@style/lmedia_select_btn_type"
+            android:background="@drawable/lmedia_select_item_bg_top"
+            android:drawableStart="@mipmap/lmedia_icon_camera"
+            android:text="@string/lmedia_select_camera_btn"
+            app:layout_constraintBottom_toTopOf="@+id/btn_album" />
+
+        <Button
+            android:id="@+id/btn_album"
+            style="@style/lmedia_select_btn_type"
+            android:drawableStart="@mipmap/lmedia_icon_album"
+            android:text="@string/lmedia_select_album_btn"
+            app:layout_constraintBottom_toTopOf="@+id/btn_cancel" />
+
+        <Button
+            android:id="@+id/btn_cancel"
+            style="@style/lmedia_select_btn"
+            android:text="@string/lmedia_select_cancel_btn"
+            android:textColor="#f00"
+            app:layout_constraintBottom_toBottomOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

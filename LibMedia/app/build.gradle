@@ -55,8 +55,14 @@ dependencies {
     androidTestImplementation rootProject.ext.dependencies.junitExt
     androidTestImplementation rootProject.ext.dependencies.espressoCore
 
-//    implementation project(path: ':lmedia')
     implementation rootProject.ext.dependencies.ucrop
 
-    implementation 'com.github.RockLeeLyh:LibAllProject:0.0.2'
+
+
+    implementation rootProject.ext.dependencies.paging
+    implementation rootProject.ext.dependencies.logger
+    implementation rootProject.ext.dependencies.glide
+
+    implementation project(path: ':lmedia')
+//    implementation 'com.github.RockLeeLyh:LibAllProject:0.0.2'
 }

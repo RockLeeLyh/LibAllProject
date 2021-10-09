@@ -8,4 +8,9 @@
     <string name="lmedia_confirm_btn">確認</string>
 
     <string name="lmedia_loading">正在加載</string>
+
+    <string name="lmedia_select_camera_btn">拍 攝</string>
+    <string name="lmedia_select_album_btn">從相片選取</string>
+    <string name="lmedia_select_cancel_btn">取消</string>
+
 </resources>

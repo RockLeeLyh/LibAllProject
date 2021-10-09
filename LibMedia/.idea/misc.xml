@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/AProject/LibAllProject/LibMedia/lmedia/src/main/res/drawable/lmedia_file_switch_bg.xml" value="0.37962962962962965" />
+        <entry key="..\:/AProject/LibAllProject/LibMedia/lmedia/src/main/res/drawable/lmedia_select_bg.xml" value="0.20092592592592592" />
+        <entry key="..\:/AProject/LibAllProject/LibMedia/lmedia/src/main/res/drawable/lmedia_select_item_bg.xml" value="0.25925925925925924" />
+        <entry key="..\:/AProject/LibAllProject/LibMedia/lmedia/src/main/res/drawable/lmedia_select_item_bg_top.xml" value="0.20092592592592592" />
+        <entry key="..\:/AProject/LibAllProject/LibMedia/lmedia/src/main/res/drawable/lmedia_title_bar_btn_bg.xml" value="0.37962962962962965" />
+        <entry key="..\:/AProject/LibAllProject/LibMedia/lmedia/src/main/res/layout/lmedia_file_fragment.xml" value="0.33" />
+        <entry key="..\:/AProject/LibAllProject/LibMedia/lmedia/src/main/res/layout/lmedia_select_fragment.xml" value="0.1" />
+      </map>
+    </option>
+  </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
 </project>
