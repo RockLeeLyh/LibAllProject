@@ -11,9 +11,9 @@ import com.rlnb.lib.media.databinding.LmediaMainActivityBinding
 import com.rlnb.lib.media.delegate.MediaFragmentDelegate
 import com.rlnb.lib.media.util.MediaLog
 
-open abstract class MediaMainActivity: AppCompatActivity() {
+open abstract class MediaMainActivity : AppCompatActivity() {
 
-    private lateinit var  mVdb: LmediaMainActivityBinding
+    private lateinit var mVdb: LmediaMainActivityBinding
 
     private var mTakePhotoActivityResult: ((requestCode: Int, resultCode: Int, data: Intent?) -> Unit)? = null
     private lateinit var mMediaFragmentDelegate: MediaFragmentDelegate
@@ -25,12 +25,21 @@ open abstract class MediaMainActivity: AppCompatActivity() {
     }
 
     private fun openMedia() {
-        mMediaFragmentDelegate = MediaFragmentDelegate(
+        mMediaFragmentDelegate = getMediaDelegate()
+        mMediaFragmentDelegate?.init()
+    }
+
+    open fun getMediaParamsBean(): MediaParamsBean {
+        return MediaParamsBean().apply {
+            maxSelectable = 1
+        }
+    }
+
+    open fun getMediaDelegate(): MediaFragmentDelegate {
+        return MediaFragmentDelegate(
             this,
             mVdb.flMainApp.id,
-            MediaParamsBean().apply {
-                maxSelectable = 1
-            }
+            getMediaParamsBean()
         )
             .apply {
                 mCheckCameraPerCallback = { checkCameraPer(it) }
@@ -39,10 +48,9 @@ open abstract class MediaMainActivity: AppCompatActivity() {
                 mConfirmUriCallback = { confirmUri(it) }
                 mCloseCallback = { closeMedia() }
             }
-        mMediaFragmentDelegate?.init()
     }
 
-    private fun closeMedia() {
+    open fun closeMedia() {
         finish()
     }
 
@@ -50,29 +58,17 @@ open abstract class MediaMainActivity: AppCompatActivity() {
 
     open abstract fun checkCameraPer(callback: () -> Unit)
 
+    open abstract fun confirmSuccess(uri:Uri)
+
     private fun confirmUri(uriList: List<Uri>) {
-        MediaLog.i(this, "獲取選中列表Uris = ${uriList}")
+        MediaLog.i(this, "獲取選中列表Uris = $uriList")
         if (uriList.isNotEmpty()) {
+            confirmSuccess(uriList[0])
         }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         mTakePhotoActivityResult?.invoke(requestCode, resultCode, data)
-
-//        if (requestCode == UCrop.REQUEST_CROP) {
-//            if(resultCode == RESULT_OK) {
-//                val uri = data?.let { UCrop.getOutput(it) }
-//                MediaLog.i(this, "UCrop 裁剪成功，uri = $uri")
-//            }else {
-//                MediaLog.i(this, "UCrop 裁剪取消，destinationUri = $destinationUri")
-//                mMediaFragmentDelegate?.delUri(destinationUri)
-//            }
-//        }
-//        else if (resultCode == UCrop.RESULT_ERROR) {
-//            val cropError = data?.let { UCrop.getError(it) }
-//            mMediaFragmentDelegate?.delUri(destinationUri)
-//            MediaLog.i(this,"UCrop 裁剪失敗，cropError = $cropError")
-//        }
     }
 }
