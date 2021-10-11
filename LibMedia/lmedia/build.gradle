@@ -8,6 +8,7 @@ group='com.rlnb.lib.media'
 //https://github.com/dcendents/android-maven-gradle-plugin
 //https://juejin.cn/post/6916061679079915528
 //https://jitpack.io/
+//https://blog.csdn.net/a990924291/article/details/110915814
 
 android {
     // 资源前缀
@@ -53,4 +54,33 @@ dependencies {
     compileOnly rootProject.ext.dependencies.logger
     compileOnly rootProject.ext.dependencies.glide
     annotationProcessor rootProject.ext.dependencies.glideCompiler
+}
+
+// 指定编码
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
+
+// 打包源码
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    archiveClassifier = 'sources'
+}
+
+task javadoc(type: Javadoc) {
+    failOnError  false
+    source = android.sourceSets.main.java.sourceFiles
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+    classpath += configurations.compile
+}
+
+// 制作文档(Javadoc)
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    archiveClassifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+artifacts {
+    archives sourcesJar
+    archives javadocJar
 }

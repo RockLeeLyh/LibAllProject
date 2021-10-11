@@ -312,10 +312,17 @@ class MediaFragmentDelegate(activity: FragmentActivity, flId: Int, mediaParamsBe
         }
     }
 
+    /**
+     * @return  返回新建并插入数据的文件Uri
+     */
     fun createImageUri(): Uri? {
         return mTakePhotoUtils.createImageUri()
     }
 
+    /**
+     * 删除传入的Uri文件
+     * @param   uri
+     */
     fun delUri(uri: Uri?) {
         mTakePhotoUtils.delUri(uri)
     }

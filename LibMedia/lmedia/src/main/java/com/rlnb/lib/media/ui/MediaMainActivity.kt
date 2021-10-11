@@ -71,4 +71,13 @@ open abstract class MediaMainActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         mTakePhotoActivityResult?.invoke(requestCode, resultCode, data)
     }
+
+    fun createImageUri(): Uri? {
+        return mMediaFragmentDelegate.createImageUri()
+    }
+
+    fun delUri(uri:Uri) {
+        mMediaFragmentDelegate.delUri(uri)
+    }
+
 }
