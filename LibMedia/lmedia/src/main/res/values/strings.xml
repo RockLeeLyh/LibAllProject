@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <string name="lmedia_des_close">关闭</string>
+    <string name="lmedia_des_drop_down">下拉框图标</string>
+    <string name="lmedia_des_loading">正在加载</string>
+
     <string name="lmedia_select_main_title">多媒體選擇器</string>
     <string name="lmedia_select_file_title">%s選擇器</string>
 
