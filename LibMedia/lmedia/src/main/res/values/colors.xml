@@ -11,4 +11,7 @@
     <color name="lmedia_folder_bg">@color/lmedia_title_bar_bg</color>
 
     <color name="lmedia_select_bg">@android:color/white</color>
+
+
+    <color name="lmedia_custom_camera_viewfinder_bg">#66000000</color>
 </resources>

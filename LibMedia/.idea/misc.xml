@@ -3,11 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AProject/LibAllProject/LibMedia/app/src/main/res/layout/main_layout.xml" value="0.1" />
+        <entry key="..\:/AProject/LibAllProject/LibMedia/lmedia/src/main/res/drawable/lmedia_custom_camera_take_btn_icon.xml" value="0.390625" />
         <entry key="..\:/AProject/LibAllProject/LibMedia/lmedia/src/main/res/drawable/lmedia_file_switch_bg.xml" value="0.37962962962962965" />
         <entry key="..\:/AProject/LibAllProject/LibMedia/lmedia/src/main/res/drawable/lmedia_select_bg.xml" value="0.20092592592592592" />
         <entry key="..\:/AProject/LibAllProject/LibMedia/lmedia/src/main/res/drawable/lmedia_select_item_bg.xml" value="0.25925925925925924" />
         <entry key="..\:/AProject/LibAllProject/LibMedia/lmedia/src/main/res/drawable/lmedia_select_item_bg_top.xml" value="0.20092592592592592" />
         <entry key="..\:/AProject/LibAllProject/LibMedia/lmedia/src/main/res/drawable/lmedia_title_bar_btn_bg.xml" value="0.37962962962962965" />
+        <entry key="..\:/AProject/LibAllProject/LibMedia/lmedia/src/main/res/layout/lmedia_custom_camera_fragment.xml" value="0.37447916666666664" />
         <entry key="..\:/AProject/LibAllProject/LibMedia/lmedia/src/main/res/layout/lmedia_file_fragment.xml" value="0.33" />
         <entry key="..\:/AProject/LibAllProject/LibMedia/lmedia/src/main/res/layout/lmedia_main_activity.xml" value="0.12962962962962962" />
         <entry key="..\:/AProject/LibAllProject/LibMedia/lmedia/src/main/res/layout/lmedia_select_fragment.xml" value="0.1" />

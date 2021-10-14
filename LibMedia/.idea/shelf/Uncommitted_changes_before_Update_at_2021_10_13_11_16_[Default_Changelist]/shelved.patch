@@ -1,0 +1,29 @@
+Index: app/src/main/java/com/rlnb/lib/media/app/MainActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.rlnb.lib.media.app\r\n\r\nimport android.Manifest\r\nimport android.content.Intent\r\nimport android.content.pm.PackageManager\r\nimport android.os.Bundle\r\nimport android.widget.Toast\r\nimport androidx.core.app.ActivityCompat\r\nimport androidx.core.content.ContextCompat\r\nimport com.rlnb.lib.media.ui.MediaMainActivity\r\n\r\n/**\r\n *\r\n * @author RL\r\n * @version 2021/9/29\r\n */\r\nclass MainActivity : MediaMainActivity() {\r\n\r\n    override fun onCreate(savedInstanceState: Bundle?) {\r\n        super.onCreate(savedInstanceState)\r\n    }\r\n\r\n\r\n//    var destinationUri:Uri? = null\r\n//    private fun crop(sourceUri:Uri) {\r\n//        destinationUri = mMediaFragmentDelegate?.createImageUri()\r\n//        MediaLog.i(this,\"UCrop 裁剪，uri = $destinationUri\")\r\n//\r\n//        UCrop.of(sourceUri, destinationUri!!)\r\n////                .withAspectRatio(16F, 9)\r\n////                .withMaxResultSize(maxWidth, maxHeight)\r\n//            .start(this)\r\n//    }\r\n\r\n\r\n    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {\r\n        super.onActivityResult(requestCode, resultCode, data)\r\n\r\n//        if (requestCode == UCrop.REQUEST_CROP) {\r\n//            if(resultCode == RESULT_OK) {\r\n//                val uri = data?.let { UCrop.getOutput(it) }\r\n//                MediaLog.i(this, \"UCrop 裁剪成功，uri = $uri\")\r\n//            }else {\r\n//                MediaLog.i(this, \"UCrop 裁剪取消，destinationUri = $destinationUri\")\r\n//                mMediaFragmentDelegate?.delUri(destinationUri)\r\n//            }\r\n//        }\r\n//        else if (resultCode == UCrop.RESULT_ERROR) {\r\n//            val cropError = data?.let { UCrop.getError(it) }\r\n//            mMediaFragmentDelegate?.delUri(destinationUri)\r\n//            MediaLog.i(this,\"UCrop 裁剪失敗，cropError = $cropError\")\r\n//        }\r\n    }\r\n\r\n    // ======================= 權限獲取 ==============================\r\n    private var callbackReadExternalPer: (() -> Unit)? = null\r\n    private val requestCodeReadExternalPer = 99\r\n\r\n    override fun checkReadExternalPer(callback: () -> Unit) {\r\n        callbackReadExternalPer = callback\r\n        callbackReadExternalPer?.let {\r\n            checkPer(requestCodeReadExternalPer, it, Manifest.permission.WRITE_EXTERNAL_STORAGE)\r\n        }\r\n    }\r\n\r\n    private var callbackCameraPer: (() -> Unit)? = null\r\n    private val requestCodeCameraPer = 999\r\n    override fun checkCameraPer(callback: () -> Unit) {\r\n        callbackCameraPer = callback\r\n        callbackCameraPer?.let {\r\n            checkPer(\r\n                requestCodeCameraPer,\r\n                it,\r\n                Manifest.permission.CAMERA,\r\n                Manifest.permission.WRITE_EXTERNAL_STORAGE\r\n            )\r\n        }\r\n    }\r\n\r\n    private fun checkPer(requestCode: Int, callback: () -> Unit, vararg pers: String) {\r\n        var isPer = false\r\n        pers.forEach {\r\n            if (ContextCompat.checkSelfPermission(this, it) !== PackageManager.PERMISSION_GRANTED) {\r\n                isPer = true\r\n            }\r\n        }\r\n        if (isPer) {\r\n            requestPermission(requestCode, pers.asList().toTypedArray())\r\n        } else {\r\n            callback?.invoke()\r\n        }\r\n    }\r\n\r\n    private fun requestPermission(requestCode: Int, requiredPermissions: Array<String>) {\r\n        ActivityCompat.requestPermissions(\r\n            this,\r\n            requiredPermissions,\r\n            requestCode\r\n        )\r\n    }\r\n\r\n    override fun onRequestPermissionsResult(\r\n        requestCode: Int,\r\n        permissions: Array<out String>,\r\n        grantResults: IntArray\r\n    ) {\r\n        super.onRequestPermissionsResult(requestCode, permissions, grantResults)\r\n        when (requestCode) {\r\n            requestCodeReadExternalPer -> {\r\n                Toast.makeText(this, \"獲取ReadExternal權限成功\", Toast.LENGTH_SHORT).show()\r\n                callbackReadExternalPer?.invoke()\r\n            }\r\n            requestCodeCameraPer -> {\r\n                Toast.makeText(this, \"獲取Camera權限成功\", Toast.LENGTH_SHORT).show()\r\n                callbackCameraPer?.invoke()\r\n\r\n            }\r\n        }\r\n\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/rlnb/lib/media/app/MainActivity.kt b/app/src/main/java/com/rlnb/lib/media/app/MainActivity.kt
+--- a/app/src/main/java/com/rlnb/lib/media/app/MainActivity.kt	(revision 1945d51cfb5fa0f9890973d81ce7c65b170ec527)
++++ b/app/src/main/java/com/rlnb/lib/media/app/MainActivity.kt	(date 1633918118483)
+@@ -3,6 +3,7 @@
+ import android.Manifest
+ import android.content.Intent
+ import android.content.pm.PackageManager
++import android.net.Uri
+ import android.os.Bundle
+ import android.widget.Toast
+ import androidx.core.app.ActivityCompat
+@@ -77,6 +78,10 @@
+         }
+     }
+ 
++    override fun confirmSuccess(uri: Uri) {
++        TODO("Not yet implemented")
++    }
++
+     private fun checkPer(requestCode: Int, callback: () -> Unit, vararg pers: String) {
+         var isPer = false
+         pers.forEach {

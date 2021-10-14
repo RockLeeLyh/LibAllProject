@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 取景框控件參數 -->
+    <declare-styleable name="lmediaViewfinderBg">
+        <!--  中間位置向上移動距離 -->
+        <attr name="lmediaVgMarginTopSize" format="dimension|reference"/>
+        <!-- 中間位置向下移動距離 -->
+        <attr name="lmediaVgMarginButtonSize" format="dimension|reference"/>
+        <!-- 取景框周圍背景 -->
+        <attr name="lmediaVgBackgroundColor" format="color|reference"/>
+        <!-- 取景框邊框顏色 -->
+        <attr name="lmediaVgStrokeColor" format="color|reference"/>
+        <!-- 取景框邊框邊大小 -->
+        <attr name="lmediaVgStrokeSize" format="dimension|reference"/>
+        <!-- 取景框圓角大小 -->
+        <attr name="lmediaVgRoundSize" format="dimension|reference"/>
+        <!-- 占X或Y方向全屏的百分之多少，取值範圍 0 - 1，決定取景框大小 -->
+        <attr name="lmediaVgRatioSize" format="float|reference"/>
+        <!-- 以X方向為基準，計算出等比例的高度，取值範圍 0 - 1 -->
+        <attr name="lmediaVgRatioX" format="float|reference"/>
+        <!-- 以Y方向為基準，計算出等比例的高度，取值範圍 0 - 1 -->
+        <attr name="lmediaVgRatioY" format="float|reference"/>
+    </declare-styleable>
+
+</resources>
