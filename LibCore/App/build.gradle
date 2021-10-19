@@ -57,6 +57,6 @@ dependencies {
 
 
     implementation rootProject.ext.dependencies.logger
-
-    implementation project(path: ':LCore')
+    implementation 'com.github.RockLeeLyh:LibAllProject:0.0.10'
+//    implementation project(path: ':LCore')
 }

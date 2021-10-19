@@ -63,6 +63,7 @@ dependencies {
     implementation rootProject.ext.dependencies.logger
     implementation rootProject.ext.dependencies.glide
 
+
     implementation project(path: ':lmedia')
 //    implementation 'com.github.RockLeeLyh:LibAllProject:0.0.2'
 }
