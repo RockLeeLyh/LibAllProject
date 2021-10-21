@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="lmedia_des_close">关闭</string>
+    <string name="lmedia_des_drop_down">下拉框图标</string>
+    <string name="lmedia_des_loading">正在加载</string>
+
+    <string name="lmedia_select_main_title">多媒體選擇器</string>
+    <string name="lmedia_select_file_title">%s選擇器</string>
+
+    <string name="lmedia_switch_btn">已選擇(%1$d/%2$d)</string>
+    <string name="lmedia_confirm_btn">確認</string>
+
+    <string name="lmedia_loading">正在加載</string>
+
+    <string name="lmedia_select_camera_btn">拍 攝</string>
+    <string name="lmedia_select_album_btn">從相片選取</string>
+    <string name="lmedia_select_cancel_btn">取消</string>
+
+
+
+    <string name="lmedia_custom_camera_close_btn">關閉</string>
+    <string name="lmedia_custom_camera_instructions">請拍照印有卡號的一面</string>
+
+</resources>
