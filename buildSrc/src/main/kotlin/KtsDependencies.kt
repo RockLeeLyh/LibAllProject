@@ -62,7 +62,8 @@ object KtsDependencies {
 
 
     object ModuleLib {
-        const val media = "com.github.RockLeeLyh:LibAllProject:0.0.13"
+        const val media = "com.github.RockLeeLyh:LibAllProject:0.0.15"
+//        const val media = "com.rlnb.lib.media:library:0.0.1"
     }
 }
 

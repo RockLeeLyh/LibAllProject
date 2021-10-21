@@ -14,7 +14,7 @@ abstract class LCoreLog {
         return "RlLog"
     }
 
-    fun getMsg(objClass: Any?, msg: String): String {
+    private fun getMsg(objClass: Any?, msg: String): String {
         return "rl - ${getTagValue()} - ${objClass?.javaClass?.simpleName} ==> $msg"
     }
 
