@@ -13,7 +13,9 @@ dependencies {
 
     implementation(KtsDependencies.Media.glide)
     implementation(KtsDependencies.Utils.logger)
-    annotationProcessor(KtsDependencies.Media.glideCompiler)
+    kapt(KtsDependencies.Media.glideCompiler)
 
-    implementation(project(":lib_media"))
+    implementation(KtsDependencies.ModuleLib.media)
+//    implementation(project(":lib_media"))
+    implementation(project(":lib_core"))
 }

@@ -60,6 +60,10 @@ object KtsDependencies {
         const val logger = "com.orhanobut:logger:2.2.0"
     }
 
+
+    object ModuleLib {
+        const val media = "com.github.RockLeeLyh:LibAllProject:0.0.13"
+    }
 }
 
 
