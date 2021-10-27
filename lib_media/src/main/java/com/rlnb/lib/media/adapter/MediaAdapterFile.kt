@@ -161,33 +161,44 @@ class MediaAdapterFile(mediaParamsBean: MediaParamsBean) :
         }
     }
 
+    /** 防止选中图片后立即跳转时，用户多个图片同时点击，跳转多个页面 */
+    var isChooseToJumpNowClick = true
+
     /**
      * 点击文件Item事件方法
      * @param   bean    数据对象
      */
     private fun clickFileItem(bean: MediaFileBean) {
-       if(mMediaParamsBean.isMaxSelectableForOne()) {
-           clickFileOneItem(bean)
-       }else {
-           clickFileMoreItem(bean)
-       }
+        if (mMediaParamsBean.isMaxSelectableForOne()) {
+            if(mMediaParamsBean.isChooseToJumpNowTrue()) {
+                if(isChooseToJumpNowClick) {
+                    isChooseToJumpNowClick = false
+                    clickFileOneItem(bean)
+                }
+            }else {
+                clickFileOneItem(bean)
+            }
+        } else {
+            clickFileMoreItem(bean)
+        }
     }
 
     /**
      * 点击文件Item事件方法,單圖選擇時
      * @param   bean    数据对象
      */
-    private fun clickFileOneItem(bean:MediaFileBean){
-        mSwitchBeanMap.forEach{notifyItemChanged(it.value.position)}
+    private fun clickFileOneItem(bean: MediaFileBean) {
+        mSwitchBeanMap.forEach { notifyItemChanged(it.value.position) }
         mSwitchBeanMap.clear()
         clickFileMoreItem(bean)
+        isChooseToJumpNowClick = true
     }
 
     /**
      * 点击文件Item事件方法,多圖選擇時
      * @param   bean    数据对象
      */
-    private fun clickFileMoreItem(bean:MediaFileBean){
+    private fun clickFileMoreItem(bean: MediaFileBean) {
         val sizeMap = mSwitchBeanMap.size
         val id = bean.id
         if (mSwitchBeanMap.containsKey(id)) {
@@ -198,28 +209,28 @@ class MediaAdapterFile(mediaParamsBean: MediaParamsBean) :
             notifyItemChanged(bean.position)
 
             if (index < sizeMap) {
-                MediaLog.i(this,"删除选中id为: $id 的文件，需要更新删除后的排序号")
+                MediaLog.i(this, "删除选中id为: $id 的文件，需要更新删除后的排序号")
                 mSwitchBeanMap.filterValues { it.switchIndex > index }
-                    .forEach{
+                    .forEach {
                         val fIndex = it.value.switchIndex
                         val newIndex = fIndex - 1
                         it.value.switchIndex = newIndex
                         if (it.value.bucketId == bean.bucketId) {
                             notifyItemChanged(it.value.position)
                         }
-                        MediaLog.i(this,"原排序下标 = $fIndex, 新排序下标 = $newIndex")
+                        MediaLog.i(this, "原排序下标 = $fIndex, 新排序下标 = $newIndex")
                     }
             }
         } else {
             if (sizeMap >= mMediaParamsBean.maxSelectable) {
-                MediaLog.i(this,"已超过可选图片大小 $sizeMap >= ${mMediaParamsBean.maxSelectable}")
+                MediaLog.i(this, "已超过可选图片大小 $sizeMap >= ${mMediaParamsBean.maxSelectable}")
                 return
             }
             val index = sizeMap.plus(1)
             bean.switchIndex = index
             mSwitchBeanMap[id] = bean
             notifyItemChanged(bean.position)
-            MediaLog.i(this,"添加新选中的文件 = $bean ")
+            MediaLog.i(this, "添加新选中的文件 = $bean ")
         }
         mClickSelectChangeFileCallback?.invoke(mSwitchBeanMap)
     }

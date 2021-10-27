@@ -24,6 +24,7 @@
         <activity android:name=".media.MediaOpenActivity"
             android:theme="@style/lmedia_theme_select"/>
         <activity android:name=".media.MediaOpenCustomCameraActivity"/>
+        <activity android:name=".media.MediaSuccessActivity"/>
 
     </application>
 

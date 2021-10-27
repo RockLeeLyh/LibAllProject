@@ -28,6 +28,7 @@ data class MediaParamsBean(
     var gridSpanCount: Int = 4,
     /** 選擇圖片是否立即跳轉，只有設置最大數里為1時，才會有效，默認不跳轉，需要點擊確認按鈕 */
     var isChooseToJumpNow: Boolean = false,
+    /** 确认选中后是否自动关闭页面，true - 关闭 */
     var isConfirmBeforeClose:Boolean = true,
 ) {
     /**

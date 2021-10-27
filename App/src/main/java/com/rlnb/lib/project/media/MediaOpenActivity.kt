@@ -1,12 +1,14 @@
 package com.rlnb.lib.project.media
 
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.rlnb.lib.media.bean.MediaParamsBean
 import com.rlnb.lib.media.ui.MediaMainActivity
 
 /**
@@ -20,7 +22,23 @@ class MediaOpenActivity : MediaMainActivity() {
         super.onCreate(savedInstanceState)
     }
 
+
+    override fun getMediaParamsBean(): MediaParamsBean {
+        return  MediaParamsBean().apply {
+            maxSelectable = 1
+            isShowTakeCamera = false
+            isConfirmBeforeClose = true
+            isChooseToJumpNow = true
+        }
+    }
+
+
     override fun confirmSuccess(uri: Uri) {
+        val intent = Intent(this,MediaSuccessActivity::class.java)
+        val arr = ArrayList<Uri>()
+        arr.add(uri)
+        intent.putExtra("uriExtra",arr)
+        startActivity(intent)
     }
 
     // ======================= 權限獲取 ==============================
@@ -47,8 +65,6 @@ class MediaOpenActivity : MediaMainActivity() {
             )
         }
     }
-
-
 
     private fun checkPer(requestCode: Int, callback: () -> Unit, vararg pers: String) {
         var isPer = false

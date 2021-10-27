@@ -4,9 +4,11 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/AProject/LibAllProject/App/src/main/res/layout/activity_media_main.xml" value="0.1" />
+        <entry key="..\:/AProject/LibAllProject/App/src/main/res/layout/activity_media_success.xml" value="0.37447916666666664" />
         <entry key="..\:/AProject/LibAllProject/App/src/main/res/layout/adapter_item_main.xml" value="0.2518518518518518" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK" />
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK" />
 </project>

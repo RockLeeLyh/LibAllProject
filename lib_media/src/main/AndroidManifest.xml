@@ -7,6 +7,19 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
 
+    <!--
+        https://blog.csdn.net/u012452490/article/details/113125945
+        Android 11 Intent.resolveActivity(context.getPackageManager()) == null
+     -->
+    <queries>
+        <intent>
+            <action android:name="android.media.action.IMAGE_CAPTURE" />
+        </intent>
+        <intent>
+            <action android:name="android.media.action.VIDEO_CAPTURE" />
+        </intent>
+    </queries>
+
     <application>
 
         <provider
