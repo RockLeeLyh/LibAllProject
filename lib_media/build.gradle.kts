@@ -16,10 +16,8 @@ dependencies {
     compileOnly(KtsDependencies.Utils.logger)
     kapt(KtsDependencies.Media.glideCompiler)
 
-
     compileOnly(project(":lib_core"))
 }
-
 
 
 afterEvaluate {
