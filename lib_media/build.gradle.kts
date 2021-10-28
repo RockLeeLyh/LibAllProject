@@ -1,6 +1,6 @@
 plugins {
-    configPluginIsApp(this,false)
-   id("maven-publish")
+    configPluginIsApp(this, false)
+    id("maven-publish")
 }
 
 configAndroid(isModule = false, isApp = false)
@@ -17,6 +17,10 @@ dependencies {
     kapt(KtsDependencies.Media.glideCompiler)
 }
 
+java {
+    withJavadocJar()
+    withSourcesJar()
+}
 
 afterEvaluate {
     publishing {
@@ -30,3 +34,4 @@ afterEvaluate {
         }
     }
 }
+
