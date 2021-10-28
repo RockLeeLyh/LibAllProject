@@ -98,6 +98,7 @@ class MediaAdapterFile(mediaParamsBean: MediaParamsBean) :
             MediaLog.i(this, "照相機，直接返回")
             return
         }
+
         when (vdb) {
             is LmediaFileImgAdapterItemBinding -> {
                 val size = String.format("%.2f", (bean.size / 1024F / 1024F))
@@ -136,6 +137,7 @@ class MediaAdapterFile(mediaParamsBean: MediaParamsBean) :
             mSwitchBeanMap[id]?.position = position
         }
         vSwitchMask.visibility = if (isSwitch) View.VISIBLE else View.GONE
+        tvSwitch.visibility = if(mMediaParamsBean.isChooseToJumpNowTrue()) View.GONE else View.VISIBLE
         tvSwitch.isSelected = isSwitch
         tvSwitch.text = if (isSwitch) {
             mSwitchBeanMap[id]?.switchIndex.toString()

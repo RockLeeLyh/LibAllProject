@@ -6,6 +6,9 @@
         <entry key="..\:/AProject/LibAllProject/App/src/main/res/layout/activity_media_main.xml" value="0.1" />
         <entry key="..\:/AProject/LibAllProject/App/src/main/res/layout/activity_media_success.xml" value="0.37447916666666664" />
         <entry key="..\:/AProject/LibAllProject/App/src/main/res/layout/adapter_item_main.xml" value="0.2518518518518518" />
+        <entry key="..\:/AProject/LibAllProject/lib_media/src/main/res/layout/lmedia_file_img_adapter_item.xml" value="0.37447916666666664" />
+        <entry key="..\:/AProject/LibAllProject/lib_media/src/main/res/layout/lmedia_file_open_camera_adapter_item.xml" value="0.37447916666666664" />
+        <entry key="..\:/AProject/LibAllProject/lib_media/src/main/res/layout/lmedia_file_video_adapter_item.xml" value="0.37447916666666664" />
       </map>
     </option>
   </component>
