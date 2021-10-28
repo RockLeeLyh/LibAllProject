@@ -17,5 +17,4 @@ dependencies {
 
 //    implementation(KtsDependencies.ModuleLib.media)
     implementation(project(":lib_media"))
-    implementation(project(":lib_core"))
 }
