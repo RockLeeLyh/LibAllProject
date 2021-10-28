@@ -17,9 +17,19 @@ dependencies {
     kapt(KtsDependencies.Media.glideCompiler)
 }
 
-java {
-    withJavadocJar()
-    withSourcesJar()
+
+//必须配置main
+sourceSets {
+    create("main") {
+        java.srcDir("src/main/java")
+    }
+}
+
+//打包源码
+val sourcesJar by tasks.registering(Jar::class) {
+    //如果没有配置main会报错
+    from(sourceSets["main"].allSource)
+    archiveClassifier.set("sources")
 }
 
 afterEvaluate {
@@ -30,6 +40,7 @@ afterEvaluate {
                 artifactId = "library"
                 version = "0.0.1"
                 from(components["release"])
+                artifact(sourcesJar)
             }
         }
     }
