@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="lmedia_des_close">Close</string>
+    <string name="lmedia_des_drop_down">Drop-down box icon</string>
+    <string name="lmedia_des_loading">Loading</string>
+
+    <string name="lmedia_switch_btn">Chosen(%1$d/%2$d)</string>
+    <string name="lmedia_confirm_btn">Confirm</string>
+
+    <string name="lmedia_loading">Loading...</string>
+
+    <string name="lmedia_select_camera_btn">Camera</string>
+    <string name="lmedia_select_album_btn">Album</string>
+    <string name="lmedia_select_cancel_btn">Cancel</string>
+
+    <string name="lmedia_custom_camera_close_btn">Close</string>
+    <string name="lmedia_custom_camera_instructions">Please take a photo of the card with card no. printed</string>
+
+</resources>
