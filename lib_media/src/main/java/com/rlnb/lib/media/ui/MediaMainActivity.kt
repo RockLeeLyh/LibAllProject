@@ -5,13 +5,14 @@ import android.net.Uri
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.FragmentActivity
 import com.rlnb.lib.media.R
 import com.rlnb.lib.media.bean.MediaParamsBean
 import com.rlnb.lib.media.databinding.LmediaMainActivityBinding
 import com.rlnb.lib.media.delegate.MediaFragmentDelegate
 import com.rlnb.lib.media.util.MediaLog
 
-open abstract class MediaMainActivity : AppCompatActivity() {
+open abstract class MediaMainActivity : FragmentActivity() {
 
     private lateinit var mVdb: LmediaMainActivityBinding
 
