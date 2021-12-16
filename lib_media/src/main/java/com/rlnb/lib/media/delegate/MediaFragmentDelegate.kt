@@ -78,11 +78,13 @@ class MediaFragmentDelegate(activity: FragmentActivity, flId: Int, mediaParamsBe
     /** 关闭回调方法 */
     var mCloseCallback: (() -> Unit)? = null
 
+    var mAlbumOpenCallback:(()->Unit)? = null
+
     /** 選擇類型頁面 */
     private val mSelectFragment by lazy {
         MediaSelectFragment(mMediaFileModel).apply {
             mCancelCallback = { selectCancelCallback() }
-            mAlbumOpenCallback = { selectAlbumOpenCallback() }
+            mAlbumOpenCallback = { mAlbumOpenCallback ?: selectAlbumOpenCallback() }
             mCameraOpenCallback = { selectCameraOpenCallback() }
             mClickConfirmUriCallback = { confirmUriCallback(it) }
             mClickConfirmBeanCallback = { confirmBeanCallback(it) }

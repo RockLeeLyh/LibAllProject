@@ -25,7 +25,7 @@ open abstract class MediaMainActivity : FragmentActivity() {
         openMedia()
     }
 
-    private fun openMedia() {
+    fun openMedia() {
         mMediaFragmentDelegate = getMediaDelegate()
         mMediaFragmentDelegate?.init()
     }
@@ -36,6 +36,10 @@ open abstract class MediaMainActivity : FragmentActivity() {
         }
     }
 
+    open fun getAlbumOpenCallback():(()->Unit)? {
+        return null
+    }
+
     open fun getMediaDelegate(): MediaFragmentDelegate {
         return MediaFragmentDelegate(
             this,
@@ -43,6 +47,7 @@ open abstract class MediaMainActivity : FragmentActivity() {
             getMediaParamsBean()
         )
             .apply {
+                mAlbumOpenCallback = getAlbumOpenCallback()
                 mCheckCameraPerCallback = { checkCameraPer(it) }
                 mCheckReadExternalPerCallback = { checkReadExternalPer(it) }
                 mTakePhotoActivityResult = mTakePhotoActivityResultCallback
