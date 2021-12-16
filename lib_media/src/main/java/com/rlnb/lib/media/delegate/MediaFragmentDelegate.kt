@@ -78,13 +78,13 @@ class MediaFragmentDelegate(activity: FragmentActivity, flId: Int, mediaParamsBe
     /** 关闭回调方法 */
     var mCloseCallback: (() -> Unit)? = null
 
-    var mAlbumOpenCallback:(()->Unit)? = null
+    var mSelectAAlbumOpenCallback:(()->Unit)? = null
 
     /** 選擇類型頁面 */
     private val mSelectFragment by lazy {
         MediaSelectFragment(mMediaFileModel).apply {
             mCancelCallback = { selectCancelCallback() }
-            mAlbumOpenCallback = { mAlbumOpenCallback ?: selectAlbumOpenCallback() }
+            mAlbumOpenCallback = { selectAlbumOpenCallback() }
             mCameraOpenCallback = { selectCameraOpenCallback() }
             mClickConfirmUriCallback = { confirmUriCallback(it) }
             mClickConfirmBeanCallback = { confirmBeanCallback(it) }
@@ -247,8 +247,12 @@ class MediaFragmentDelegate(activity: FragmentActivity, flId: Int, mediaParamsBe
 
     /** 打开相册按钮回调方法 */
     private fun selectAlbumOpenCallback() {
-        showOrHide(mFileFragment)
-        mFolderFragment.initData()
+        if( mSelectAAlbumOpenCallback  != null) {
+            mSelectAAlbumOpenCallback?.invoke()
+        }else {
+            showOrHide(mFileFragment)
+            mFolderFragment.initData()
+        }
     }
 
     /** 打开相机按钮回调方法 */

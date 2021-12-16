@@ -47,7 +47,7 @@ open abstract class MediaMainActivity : FragmentActivity() {
             getMediaParamsBean()
         )
             .apply {
-                mAlbumOpenCallback = getAlbumOpenCallback()
+                mSelectAAlbumOpenCallback = getAlbumOpenCallback()
                 mCheckCameraPerCallback = { checkCameraPer(it) }
                 mCheckReadExternalPerCallback = { checkReadExternalPer(it) }
                 mTakePhotoActivityResult = mTakePhotoActivityResultCallback

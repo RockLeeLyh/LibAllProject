@@ -32,6 +32,12 @@ class MediaOpenActivity : MediaMainActivity() {
         }
     }
 
+    override fun getAlbumOpenCallback(): (() -> Unit)? {
+        return {
+            Toast.makeText(this,"test",Toast.LENGTH_SHORT).show()
+        }
+    }
+
 
     override fun confirmSuccess(uri: Uri) {
         val intent = Intent(this,MediaSuccessActivity::class.java)
